@@ -1,0 +1,4 @@
+baseURL = "http://gr455.me/"
+languageCode = "en-us"
+title = "Blog"
+theme = "gohugo-theme-ananke"
