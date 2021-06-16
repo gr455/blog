@@ -1,6 +1,6 @@
 baseURL = "https://gr455.me/blog"
 languageCode = "en-us"
-title = "Ruturaj's Blog"
+title = "gr455.me/blog"
 theme = "gohugo-theme-ananke"
 
 DefaultContentLanguage = "en"
@@ -17,7 +17,7 @@ enableRobotsTXT = true
 [params]
   favicon = ""
   site_logo = ""
-  description = "The last theme you'll ever need. Maybe."
+  description = ""
   facebook = ""
   twitter = "https://twitter.com/grassfrui7"
   instagram = ""
@@ -30,4 +30,4 @@ enableRobotsTXT = true
   stackoverflow = ""
   rss = ""
   background_color_class = "bg-black"
-  recent_posts_number = 2
+  recent_posts_number = 5
