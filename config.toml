@@ -1,4 +1,4 @@
-baseURL = "http://gr455.me/"
+baseURL = "https://gr455.me/blog"
 languageCode = "en-us"
 title = "Ruturaj's Blog"
 theme = "gohugo-theme-ananke"
