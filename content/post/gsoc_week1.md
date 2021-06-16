@@ -14,7 +14,7 @@ My project is to implement a testbench to automatically test circuits against te
 ## Community Bonding Period
 
 I had been contributing to CircuitVerse since September 2020, so I was familiar with the community. Still the community bonding period was a blast! I got to meet the entire core development team at CircuitVerse and all the other GSoC students over a video conference. My mentors were extremely welcoming and helpful too.
-I discussed the goals and features of the testbench project with **Satvik Ramaprasad** and **Prof. Richard Pawson** and decided on the flow from the user point of view.
+I discussed the goals and features of the testbench project with **Satvik Ramaprasad** and **Dr. Richard Pawson** and decided on the flow from the user point of view.
 
 I also read a lot of code during this period (I am half decent at reading code from all that I have read while auditing for security stuff). Since my project is very close to the simulator engine, I had to be familiar with the working of the engine. Reading all this code really made me appreciate CircuitVerse. It takes Data Structures and Algorithms and integrates them seemlessly into a working product.
 
