@@ -1,4 +1,33 @@
 baseURL = "http://gr455.me/"
 languageCode = "en-us"
-title = "Blog"
+title = "Ruturaj's Blog"
 theme = "gohugo-theme-ananke"
+
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+googleAnalytics = ""
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  favicon = ""
+  site_logo = ""
+  description = "The last theme you'll ever need. Maybe."
+  facebook = ""
+  twitter = "https://twitter.com/grassfrui7"
+  instagram = ""
+  youtube = ""
+  github = "https://github.com/gr455"
+  gitlab = ""
+  linkedin = "https://linkedin.com/in/ruturaj-mohite"
+  mastodon = ""
+  slack = ""
+  stackoverflow = ""
+  rss = ""
+  background_color_class = "bg-black"
+  recent_posts_number = 2
