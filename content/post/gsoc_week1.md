@@ -18,7 +18,7 @@ I discussed the goals and features of the testbench project with **Satvik Ramapr
 
 I also read a lot of code during this period (I am half decent at reading code from all that I have read while auditing for security stuff). Since my project is very close to the simulator engine, I had to be familiar with the working of the engine. Reading all this code really made me appreciate CircuitVerse. It takes Data Structures and Algorithms and integrates them seemlessly into a working product.
 
-## Coding | Week 1 (June 6 - 12)
+## Coding | Week 1 (June 7 - 13)
 
 The first week of coding, my goal was to make the user interface for creating tests. These tests could further be used with the testbench. CircuitVerse already had a very crude UI present to achieve this, but it was not user friendly and didn't fit with the new testbench design anyway, so I had to start from scratch and rewrite the testbench creator.
 
@@ -34,4 +34,4 @@ To complete this quickly, I put all the code for the UI into one ruby view. This
 
 Apart from this, I started work on the backend for the tests, and was in the process of implementing CRUD operations when my mentor told me that it's best that the backend is left at the end as a feature and to finish up work on the engine first. This was my fault. I should have communicated my status better with the mentor. That would have enabled me to work on engine earlier rather than working on the backend. So for now, the backend is on a pause (will finish that after the engine is done and the testbench works) and the coming week will be spent implementing the engine.
 
-Overall, the first two weeks of GSoC have been really fun, and I'm sure it only gets better from here :D
+Overall, the first few weeks of GSoC have been really fun, and I'm sure it only gets better from here :D
