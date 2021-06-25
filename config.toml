@@ -31,3 +31,4 @@ enableRobotsTXT = true
   rss = ""
   background_color_class = "bg-black"
   recent_posts_number = 5
+  
