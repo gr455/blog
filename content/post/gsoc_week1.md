@@ -5,6 +5,7 @@ draft: false
 featured_image: "/img/gsoc.png"
 ---
 
+
 I was selected for the Google Summer of Code '21 with [CircuitVerse](https://circuitverse.org) this year and this blog post and the ones following this will document my journey through the program.
 
 [CircuitVerse](https://circuitverse.org) is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser. It also has features for professors to give assignments and grades.
