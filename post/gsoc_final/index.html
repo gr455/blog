@@ -1,0 +1,184 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>GSoC '21 Testbench Project: Final Report | gr455.me/blog</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="This blog post is a report of all my work done on the Testbench Project as a part of GSoC 2021 at CircuitVerse
+About the Project CircuitVerse is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser.
+My project is to implement a testbench to automatically test circuits against test cases. This will replace the existing testbench element in favor of more robust testbench which runs faster, supports sequential circuits and gives the user greater control over running tests.">
+<meta name=generator content="Hugo 0.87.0">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/blog/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css>
+<meta property="og:title" content="GSoC '21 Testbench Project: Final Report">
+<meta property="og:description" content="This blog post is a report of all my work done on the Testbench Project as a part of GSoC 2021 at CircuitVerse
+About the Project CircuitVerse is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser.
+My project is to implement a testbench to automatically test circuits against test cases. This will replace the existing testbench element in favor of more robust testbench which runs faster, supports sequential circuits and gives the user greater control over running tests.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gr455.me/blog/post/gsoc_final/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-08-15T18:24:22+05:30">
+<meta property="article:modified_time" content="2021-08-15T18:24:22+05:30">
+<meta itemprop=name content="GSoC '21 Testbench Project: Final Report">
+<meta itemprop=description content="This blog post is a report of all my work done on the Testbench Project as a part of GSoC 2021 at CircuitVerse
+About the Project CircuitVerse is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser.
+My project is to implement a testbench to automatically test circuits against test cases. This will replace the existing testbench element in favor of more robust testbench which runs faster, supports sequential circuits and gives the user greater control over running tests."><meta itemprop=datePublished content="2021-08-15T18:24:22+05:30">
+<meta itemprop=dateModified content="2021-08-15T18:24:22+05:30">
+<meta itemprop=wordCount content="777">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="GSoC '21 Testbench Project: Final Report">
+<meta name=twitter:description content="This blog post is a report of all my work done on the Testbench Project as a part of GSoC 2021 at CircuitVerse
+About the Project CircuitVerse is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser.
+My project is to implement a testbench to automatically test circuits against test cases. This will replace the existing testbench element in favor of more robust testbench which runs faster, supports sequential circuits and gives the user greater control over running tests.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header class="cover bg-top" style=background-image:url(https://gr455.me/blog/img/gsoc.png)>
+<div class="pb3-m pb6-l bg-black-60">
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/blog/ class="f3 fw2 hover-white no-underline white-90 dib">
+gr455.me/blog
+</a>
+<div class="flex-l items-center">
+<ul class="pl0 mr3">
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/blog/post/ title="Posts page">
+Posts
+</a>
+</li>
+</ul>
+<a href=https://twitter.com/grassfrui7 target=_blank class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel=noopener aria-label="follow on Twitter——Opens in a new window"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://linkedin.com/in/ruturaj-mohite target=_blank class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel=noopener aria-label="follow on LinkedIn——Opens in a new window"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://github.com/gr455 target=_blank class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel=noopener aria-label="follow on Github——Opens in a new window"><svg height="32" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+</div>
+</div>
+</nav>
+<div class="tc-l pv6 ph3 ph4-ns">
+<h1 class="f2 f1-l fw2 white-90 mb0 lh-title">GSoC '21 Testbench Project: Final Report</h1>
+</div>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://gr455.me/blog/post/gsoc_final/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://gr455.me/blog/post/gsoc_final/&text=GSoC%20%2721%20Testbench%20Project:%20Final%20Report" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://gr455.me/blog/post/gsoc_final/&title=GSoC%20%2721%20Testbench%20Project:%20Final%20Report" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">GSoC '21 Testbench Project: Final Report</h1>
+<time class="f6 mv4 dib tracked" datetime=2021-08-15T18:24:22+05:30>August 15, 2021</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>This blog post is a report of all my work done on the Testbench Project as a part of GSoC 2021 at <a href=https://circuitverse.org>CircuitVerse</a></p>
+<h2 id=about-the-project>About the Project</h2>
+<p><a href=https://circuitverse.org>CircuitVerse</a> is a Digital Logic Simulator on web. It is an educational tool for students interested in electronics to simulate and make circuits on their browser.</p>
+<p>My project is to implement a testbench to automatically test circuits against test cases. This will replace the existing testbench element in favor of more robust testbench which runs faster, supports sequential circuits and gives the user greater control over running tests.</p>
+<h2 id=project-goals-and-implementation>Project Goals and Implementation</h2>
+<p>The Testbench project had the following goals</p>
+<ul>
+<li>Build a test creator UI from where user can create tests</li>
+<li>Build a UI on simulator where the user can use the tests</li>
+<li>Build a testbench engine which runs the tests</li>
+<li>Implement storing of the tests</li>
+<li>Implement automatic testing of assignment submissions</li>
+</ul>
+<h3 id=the-testbench-engine>The Testbench Engine</h3>
+<p>The engine is the brain of the testbench, control is shifted to the testbench engine when tests are run. The engine uses the simulator engine functions to run the simulation during testing. The engine is independent of clock time. The engine only waits for the inputs propagate, then checks outputs. So no matter what the clock frequency is, the engine can run all the tests in a fraction of a second.</p>
+<p>The engine also skips rendering updated circuit states between tests for improved speed.</p>
+<h3 id=the-testbench-ui>The Testbench UI</h3>
+<p>The UI on simulator is the interface to this engine. The user can attach tests to the circuit and run the tests from this UI. User can choose to walk through the tests manually, one by one, or run all the tests at once and check the results.</p>
+<p><img src=/blog/img/sim_ui_final.png alt="UI on Simulator"></p>
+<h3 id=the-test-creator-ui>The Test Creator UI</h3>
+<p>The UI on simulator is seamlessly integrated with the creator UI. The creator shows up as a pop up when the user wants to attach tests. When the user is done creating a test, the test shows up on the simulator UI.</p>
+<p>The creator UI is also used to show the tests results if the user runs all the tests at once.</p>
+<p><img src=/blog/img/creator_ui_final.png alt="Creator UI"></p>
+<h3 id=storing-tests>Storing Tests</h3>
+<p>The test, once attached to a circuit, is stored with the circuit data. So the test loads automatically when the circuit loads.
+This is all the data that a test stores.</p>
+<ul>
+<li>type: Type of the test - Combinational / Sequential.</li>
+<li>groups: Array of test group. Each test group consists:
+<ul>
+<li>n: Number of test cases in the test.</li>
+<li>inputs: Array of inputs to be given to the test. Each input consists:
+<ul>
+<li>bitwidth: Bitwidth of the input.</li>
+<li>label: Labels will be matched with the identifiers on the circuitelements to bind the testbench to.</li>
+<li>values: Ordered array of values of the input across test casesin the current set.</li>
+</ul>
+</li>
+<li>outputs: Array of outputs of the test. Each output consists:
+<ul>
+<li>bitwidth: Bitwidth of the output.</li>
+<li>label: Labels will be matched with the identifiers on the circuitelements to bind the testbench to.</li>
+<li>values: Ordered array of values of the output across testcases in the current set</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=finished-product>Finished Product</h2>
+<p><img src=/blog/gif/tb-final.gif alt="Creator UI"></p>
+<h2 id=challenges-and-learnings>Challenges and Learnings</h2>
+<p>There were a lot of things I did for the first time, and a lot of things that didn&rsquo;t go as planned.</p>
+<ul>
+<li>
+<p>Early on in the project, I started working on a backend where the tests would be stored without consulting my mentor. It was later decided to have the tests attached to project circuits, instead of having a backend for tests.</p>
+</li>
+<li>
+<p>This was my first time really working on UI and UX. I was really bad at writing css, but with some googling and trial and error, I was able to write it. I am sure it&rsquo;s not the best css, but it works and gets the job done 😬.</p>
+</li>
+<li>
+<p>First time using Figma to make design mockups and understanding the tradeoff between UI and UX.</p>
+</li>
+<li>
+<p>This was also my first time working with Webpack and asset pipelines. I had to serve the new UI through webpack, and so I had to configure webpack to do so.</p>
+</li>
+</ul>
+<h2 id=acknowledgments>Acknowledgments</h2>
+<p>Thanks to the core team at CircuitVerse, <a href=https://github.com/satu0king>Satvik Ramaprasad</a>, <a href=https://github.com/tachyons>Aboobacker MK</a>, <a href=https://github.com/Shivansh2407>Shivansh Srivastava</a>, <a href=https://github.com/abstrekt>Samiran Konwar</a>, <a href=https://github.com/nitin10s>Nitin Singhal</a> and <a href=https://www.linkedin.com/in/-shreya-prasad/>Shreya Prasad</a> for providing feedback on my progress and conducting weekly catch-up sessions that kept me involved in the community.</p>
+<p>Special thanks to <a href=https://github.com/satu0king>Satvik Ramaprasad</a> and <a href=https://github.com/nitin10s>Nitin Singhal</a>. For helping me understand the engine code, helping a great deal with UI feedbacks and code reviews.</p>
+<h2 id=the-code>The Code</h2>
+<p><a href=https://github.com/CircuitVerse/CircuitVerse/pull/2289>Phase 1 PR</a>: Implements a crude creator UI, early version of the engine and input-output validations.</p>
+<p><a href=https://github.com/CircuitVerse/CircuitVerse/pull/2366>Phase 2 PR</a>: Implements a newer UI, themes compatibility, refactored engine (more robust), a bunch of data fixes and integration with webpack.</p>
+<p><a href=https://github.com/CircuitVerse/CircuitVerse/tree/testbench>Feature Branch</a>: Branch with all the code</p>
+<ul class=pa0>
+</ul>
+<div class="mt6 instapaper_ignoref">
+</div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://gr455.me/blog>
+&copy; gr455.me/blog 2021
+</a>
+<div>
+<a href=https://twitter.com/grassfrui7 target=_blank class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel=noopener aria-label="follow on Twitter——Opens in a new window"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://linkedin.com/in/ruturaj-mohite target=_blank class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel=noopener aria-label="follow on LinkedIn——Opens in a new window"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://github.com/gr455 target=_blank class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel=noopener aria-label="follow on Github——Opens in a new window"><svg height="32" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+</div>
+</div>
+</footer>
+</body>
+</html>
