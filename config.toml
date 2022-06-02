@@ -1,6 +1,6 @@
-baseURL = "https://gr455.me/blog"
+baseURL = "https://gr455.github.io/blog"
 languageCode = "en-us"
-title = "gr455.me/blog"
+title = "gr455.github.io/blog"
 theme = "gohugo-theme-ananke"
 
 DefaultContentLanguage = "en"
