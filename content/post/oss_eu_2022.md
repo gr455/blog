@@ -61,9 +61,9 @@ This is the place where I talked to so many awesome people in tech. I even got t
 ## Touring Dublin
 Now, of course I wasn't going to leave without touring Dublin. The Linux Foundation had organized a bunch of touring activities themself. There was a boat tour of River Liffey, a bus tour of the Dublin City (which I missed because I slept through it) and a tour of the Guinness Storehouse. The Guinness Storehouse tour was particuarly interesting, they showcased the preperation of the iconic Guinness Beer and we also got to drink some (not to my liking, I'm sure it's an acquired taste, though) and eat some Irish food (this one WAS to my liking :D)
 
-![Guinness Storehouse Map](/blog/img/guinness_1.jpg)
-
 ![Guinness Storehouse](/blog/img/guinness_2.jpg)
+
+![Guinness](/blog/img/guinness.jpg)
 
 Apart from these, I also went out with the other folks from India who were attending the Open Source Summit. We went to the Trinity College, the Sandymount Beach and Malahide.
 
